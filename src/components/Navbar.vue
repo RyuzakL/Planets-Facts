@@ -1,6 +1,7 @@
 <script setup>
 import Container from '@/components/Container.vue';
 import NavItem from '@/components/NavItem.vue'
+import { colors } from '@/helper/colors.js'
 import { ref } from 'vue';
 
 const props = defineProps({
@@ -10,23 +11,9 @@ const props = defineProps({
 	}
 })
 
-const emit = defineEmits(['set-current-tab'])
+const emit = defineEmits(['set-current-tab', 'is-menu-open'])
 const currentTab = ref('overview')
 
-const colors = {
-	white: 'bg-[#FFFFFF]',
-	blueBG: 'bg-[#070724]',
-	greyDark: 'bg-[#38384F]',
-	greyLight: 'bg-[#838391]',
-	cyan: 'bg-[#419EBB]',
-	yellow: 'bg-[#EDA249]',
-	purple: 'bg-[#6f2ed6]',
-	orange: 'bg-[#D14C32]',
-	red: 'bg-[#D83A34]',
-	brown: 'bg-[#CD5120]',
-	green: 'bg-[#1ec2a4]',
-	blue: 'bg-[#2d68f0]',
-}
 
 const currentPosition = {
 	overview: 'left-[0]',
@@ -39,8 +26,8 @@ function handleCurrentTab(e) {
 	currentTab.value = e.target.textContent.toLowerCase()
 	emit('set-current-tab', currentTab.value)
 }
-
 const isCurrentTab = (tabName) => currentTab.value === tabName
+
 </script>
 
 <template>
