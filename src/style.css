@@ -46,6 +46,15 @@
 @tailwind utilities;
 
 
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+ transform: translateY(100%);
+}
 /* 
 font-family: 'Antonio', sans-serif;
 font-family: 'League Spartan', sans-serif; 

@@ -12,7 +12,6 @@ const props = defineProps({
 	isMenuOpen: {
 		required: true,
 		type: Boolean
-
 	}
 })
 
@@ -26,12 +25,11 @@ console.log(currentPlanet.value)
 </script>
 
 <template>
-	<DropdownMenu v-if="isMenuOpen" />
-	<div v-else>
+	<div>
 		<StarsBgSVG />
 		<Navbar :planet="currentPlanet" @set-current-tab="updateTab" />
 		<hr>
-		<Container class="grid place-items-center">
+		<Container class="grid place-items-center relative">
 			<div class="w-[100%] grid place-items-center relative my-24">
 				<img :class="{ 'absolute w-[20%] top-[70px]': isSurfaceTab(), 'w-[35%]': !isSurfaceTab() }" class=" z-10"
 					:src="`src/${currentPlanet[currentTab].planet}`" alt="planet image">
