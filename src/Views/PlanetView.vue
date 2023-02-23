@@ -1,25 +1,37 @@
 <script setup>
 import StarsBgSVG from '@/components/StarsBgSVG.vue'
-import iconSourceSVG from '@/assets/icon-source.svg'
 import Container from '@/components/Container.vue';
 import PlanetDetails from '@/components/PlanetDetails.vue'
 import DropdownMenu from '@/components/DropdownMenu.vue';
 import Navbar from '@/components/Navbar.vue'
+import iconSourceSVG from '@/assets/icon-source.svg'
+
 import planetsJSON from '@/db.json'
-import { ref, computed } from 'vue';
+
+import { ref, computed, watch } from 'vue';
+import { useStore } from 'vuex'
 
 const props = defineProps({
-	isMenuOpen: {
-		required: true,
-		type: Boolean
+	planet: {
+		type: String,
+		required: true
 	}
 })
 
-const selectedPlanet = ref('neptune')
-const currentPlanet = computed(() => planetsJSON[selectedPlanet.value])
+const store = useStore()
+const isMenuOpen = computed(() => store.state.isMenuOpen)
+
+const currentPlanet = computed(() => planetsJSON[props.planet])
 const currentTab = ref('overview')
+
 const updateTab = (newTab) => currentTab.value = newTab
 const isSurfaceTab = () => currentTab.value === 'surface'
+const updateSelectedPlanet = (newPlanet) => props.planet = newPlanet
+
+watch(currentPlanet, () => {
+	currentTab.value = 'overview'
+})
+
 console.log(currentPlanet.value)
 
 </script>
@@ -27,8 +39,11 @@ console.log(currentPlanet.value)
 <template>
 	<div>
 		<StarsBgSVG />
-		<Navbar :planet="currentPlanet" @set-current-tab="updateTab" />
+		<Navbar :planet="currentPlanet" @set-current-tab="updateTab" :currentTab="currentTab" />
 		<hr>
+		<Transition name="dropdown">
+			<DropdownMenu v-if="isMenuOpen" @set-selected-planet="updateSelectedPlanet" />
+		</Transition>
 		<Container class="grid place-items-center relative">
 			<div class="w-[100%] grid place-items-center relative my-24">
 				<img :class="{ 'absolute w-[20%] top-[70px]': isSurfaceTab(), 'w-[35%]': !isSurfaceTab() }" class=" z-10"

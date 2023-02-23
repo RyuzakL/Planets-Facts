@@ -4,7 +4,12 @@ import PlanetView from '@/views/PlanetView.vue';
 const routes = [
   {
     path: '/',
-    name: 'home',
+    redirect: () => ({ name: 'planet', params: { planet: 'mercury' } }),
+  },
+  {
+    path: '/:planet',
+    name: 'planet',
+    props: true,
     component: PlanetView,
   },
 ];
@@ -15,3 +20,5 @@ const router = createRouter({
 });
 
 export default router;
+
+// s'occuper du routing et ajouter un routes dynamic

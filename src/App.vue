@@ -1,9 +1,11 @@
 <script setup>
 import hamburgerSVG from '@/assets/icon-hamburger.svg'
-import DropdownMenu from './components/DropdownMenu.vue';
-import { ref } from 'vue';
-const isMenuOpen = ref(false)
-const handleIsMenuOpen = () => isMenuOpen.value = !isMenuOpen.value
+import { computed } from 'vue';
+import { useStore } from 'vuex'
+const store = useStore()
+const isMenuOpen = computed(() => store.state.isMenuOpen)
+const handleIsMenuOpen = () => store.dispatch('updateIsMenuOpen', isMenuOpen.value)
+
 </script>
 
 <template>
@@ -11,12 +13,7 @@ const handleIsMenuOpen = () => isMenuOpen.value = !isMenuOpen.value
 		<h2 class="text-[28px] leading-none tracking-tighter">THE PLANETS</h2>
 		<img @click="handleIsMenuOpen" :src="hamburgerSVG" alt="icon-hamburger">
 	</header>
-	<Transition name="dropdown">
-		<DropdownMenu v-if="isMenuOpen" />
-	</Transition>
 	<hr class="mb-4">
-	<RouterView :isMenuOpen="isMenuOpen" />
+	<RouterView />
 </template>
 
-
-<!-- RyuzakL/Planets-Facts/mercury --> 
