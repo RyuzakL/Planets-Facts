@@ -1,7 +1,7 @@
 <script setup>
 import Container from '@/components/Container.vue';
 import NavItem from '@/components/NavItem.vue'
-import { colors } from '@/helper/colors.js'
+import { colors } from '@/helper/tailwindClass.js'
 
 const props = defineProps({
 	planet: {

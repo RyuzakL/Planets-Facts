@@ -1,6 +1,6 @@
 <script setup>
 import planetsJSON from '@/db.json'
-import { colors } from '@/helper/colors.js'
+import { colors } from '@/helper/tailwindClass.js'
 import rightArrowSVG from '@/assets/icon-chevron.svg'
 import { onMounted, onUnmounted, computed } from 'vue';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
@@ -24,7 +24,6 @@ onUnmounted(() => {
 function handleClick(e) {
 	if (!e.target.textContent) return
 	const selectedPlanet = e.target.textContent.toLowerCase()
-	emit('set-selected-planet', selectedPlanet)
 	store.dispatch('updateIsMenuOpen', isMenuOpen.value)
 	router.push({ name: 'planet', params: { planet: selectedPlanet } })
 }
@@ -35,7 +34,7 @@ function handleClick(e) {
 	<div class="fixed bg-blueBG z-30 top-20 w-full h-full">
 		<div @click="handleClick" class="w-[88%] mx-auto">
 			<div v-for="planet, index in planetsArr" :key="index">
-				<div class="flex justify-between items-center">
+				<div class="flex justify-between items-center ">
 					<div class="flex items-center gap-8">
 						<div :class="colors[planet.color]" class="w-5 h-5 rounded-full"></div>
 						<span class="text-white font-spartan font-semibold text-[18px] tracking-widest">

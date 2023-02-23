@@ -37,7 +37,6 @@
 	}
 
 	body {
-		/* height: 100%; */
 		@apply bg-blueBG
 	}
  }
@@ -55,6 +54,8 @@
 .dropdown-leave-to {
  transform: translateY(100%);
 }
+
+
 /* 
 font-family: 'Antonio', sans-serif;
 font-family: 'League Spartan', sans-serif; 
