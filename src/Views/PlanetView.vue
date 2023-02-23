@@ -7,7 +7,6 @@ import iconSourceSVG from '@/assets/icon-source.svg'
 
 import { ref, computed, watch } from 'vue';
 import planetsJSON from '@/db.json'
-import { toNumber } from '@vue/shared';
 
 const props = defineProps({
 	planet: {
@@ -18,7 +17,6 @@ const props = defineProps({
 
 const currentPlanet = computed(() => planetsJSON[props.planet])
 const currentTab = ref('overview')
-const planetWidth = ref((100 + toNumber(currentPlanet.value.radius.replace('KM', '').replace(',', '').slice(0, 2))) / 100)
 
 const updateTab = (newTab) => currentTab.value = newTab
 const isSurfaceTab = () => currentTab.value === 'surface'
