@@ -40,7 +40,7 @@ function handleClick(e) {
 						<span class="text-white font-spartan font-semibold text-[18px] tracking-widest">
 							{{ planet.name.toUpperCase() }}</span>
 					</div>
-					<img class="my-8" src="assets/icon-chevron.svg" alt="arrow right icon">
+					<img class="my-8" src="/assets/icon-chevron.svg" alt="arrow right icon">
 				</div>
 				<hr v-if="index !== planetsArr.length - 1">
 			</div>
