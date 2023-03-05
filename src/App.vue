@@ -1,5 +1,4 @@
 <script setup>
-import hamburgerSVG from '@/assets/icon-hamburger.svg'
 import DropdownMenu from '@/components/DropdownMenu.vue';
 import { computed } from 'vue';
 import { useStore } from 'vuex'
@@ -13,7 +12,7 @@ const handleIsMenuOpen = () => store.dispatch('updateIsMenuOpen', isMenuOpen.val
 	<header class="mx-auto w-[88%] flex justify-between items-center my-4">
 		<h2 class="text-[28px] leading-none tracking-tighter">THE PLANETS</h2>
 		<img class="active:opacity-70  active:scale-95" data-testid="hamburger-icon" @click="handleIsMenuOpen"
-			:src="hamburgerSVG" alt="icon-hamburger">
+			src="/assets/icon-hamburger.svg" alt="icon-hamburger">
 	</header>
 	<hr class="mb-4">
 	<Transition name="dropdown">
