@@ -3,7 +3,6 @@ import StarsBgSVG from '@/components/StarsBgSVG.vue'
 import Container from '@/components/Container.vue';
 import PlanetDetails from '@/components/PlanetDetails.vue'
 import Navbar from '@/components/Navbar.vue'
-
 import { ref, computed, watch } from 'vue';
 import planetsJSON from '@/db.json'
 
@@ -43,7 +42,7 @@ watch(currentPlanet, () => {
 		<h2 class="tracking-normal mb-4">{{ (currentPlanet.name).toUpperCase() }}</h2>
 		<p class="text-center tracking-normal leading-5 mb-8 ">{{ currentPlanet[currentTab].content }}</p>
 		<span class="flex items-center gap-2 text-greyLight mb-6">Source : <a class="text-greyLight font-bold underline"
-				:href="currentPlanet[currentTab].source">Wikipedia </a> <img src="assets/icon-source.svg" alt=""></span>
+				:href="currentPlanet[currentTab].source">Wikipedia </a> <img src="/assets/icon-source.svg" alt=""></span>
 		<PlanetDetails :label="'rotation time'" :details="currentPlanet.rotation" />
 		<PlanetDetails :label="'revolution time'" :details="currentPlanet.revolution" />
 		<PlanetDetails :label="'radius'" :details="currentPlanet.radius" />
