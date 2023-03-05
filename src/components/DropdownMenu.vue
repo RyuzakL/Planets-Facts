@@ -7,6 +7,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import router from '@/router';
 import { useStore } from 'vuex'
 
+
 const store = useStore()
 const isMenuOpen = computed(() => store.state.isMenuOpen)
 
@@ -48,8 +49,3 @@ function handleClick(e) {
 	</div>
 </template>
 
-<!-- 
- - Chercher le meilleur endroit ou mettre le dropdown menu
-
-
- -->

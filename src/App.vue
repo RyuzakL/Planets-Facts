@@ -12,7 +12,8 @@ const handleIsMenuOpen = () => store.dispatch('updateIsMenuOpen', isMenuOpen.val
 <template>
 	<header class="mx-auto w-[88%] flex justify-between items-center my-4">
 		<h2 class="text-[28px] leading-none tracking-tighter">THE PLANETS</h2>
-		<img class="active:opacity-70  active:scale-95" @click="handleIsMenuOpen" :src="hamburgerSVG" alt="icon-hamburger">
+		<img class="active:opacity-70  active:scale-95" data-testid="hamburger-icon" @click="handleIsMenuOpen"
+			:src="hamburgerSVG" alt="icon-hamburger">
 	</header>
 	<hr class="mb-4">
 	<Transition name="dropdown">

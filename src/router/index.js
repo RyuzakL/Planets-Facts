@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import PlanetView from '../views/PlanetView.vue';
+import PlanetView from '@/views/PlanetView.vue';
 import planetsJSON from '@/db.json';
 
 const routes = [
