@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import PlanetView from '@/views/PlanetView.vue';
+import PlanetView from '@/Views/PlanetView.vue';
 import planetsJSON from '@/db.json';
 
 const routes = [
@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/error',
     name: 'error',
-    component: () => import('@/views/InvalidPlanet.vue'),
+    component: () => import('@/Views/InvalidPlanet.vue'),
   },
   {
     path: '/:planet',
